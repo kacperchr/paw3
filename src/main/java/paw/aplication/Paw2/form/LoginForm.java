@@ -1,14 +1,6 @@
-package paw.aplication.Paw2.Entity;
+package paw.aplication.Paw2.form;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
-public class  User {
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+public class LoginForm {
     private Integer id;
     private String name;
 
@@ -46,4 +38,9 @@ public class  User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
 }
+
+
+

@@ -33,18 +33,18 @@ public class MainController {
         // This returns a JSON or XML with the users
         return userRepository.findAll();
     }
-    @GetMapping(path="/index")
+    /*@GetMapping(path="/index")
     public String sampleView(Model model) {
        // String name2 = userRepository.findAll();
         model.addAttribute(userRepository.findAll());
         return "index";
-    }
-    @GetMapping(path="/withData")
+    }*/
+    @GetMapping(path="/index")
     public String modelView(Model model) {
 
-        User user = userRepository.findUserByName("gunwo");
+       /* User user = userRepository.findUserByName("gunwo");
         model.addAttribute("number",user.getId());
-        model.addAttribute("user",user.getName());
+        model.addAttribute("user",user.getName());*/
 
         return "sample";
     }

@@ -17,18 +17,18 @@ import paw.aplication.Paw2.Repository.OfertaRepository;
 @Controller
 @RequestMapping(path="/demo")
 
-public class OfertaController {
+public class KontaktController {
 
     @Autowired
     private OfertaRepository ofertaRepository;
 
 
-    @GetMapping(path="/oferta")
+    @GetMapping(path="/kontakt")
     public String modelView(Model model) {
         model.addAttribute("data",ofertaRepository.findAll());
 
 
-        return "oferta";
+        return "kontakt";
     }
 
 }

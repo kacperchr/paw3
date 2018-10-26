@@ -1,5 +1,7 @@
 package paw.aplication.Paw2.Entity;
 
+
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,10 +17,12 @@ public class  Oferta {
     private String text;
 
     public String getPicture() {
+
         return picture;
     }
 
     public void setPicture(String picture) {
+
         this.picture = picture;
     }
 
