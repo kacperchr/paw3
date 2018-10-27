@@ -29,18 +29,23 @@
         </thead>
         <tbody>
 
-        <tr th:each="data: ${data}">
-            <td th:text="${data.id}"></td>
-            <td th:text="${data.name}"></td>
-            <td th:text="${data.lastname}"></td>
-            <td th:text="${data.mail}"></td>
-            <td th:text="${data.phonenumber}"></td>
-            <td th:text="${data.adres}"></td>
-            <td th:text="${data.text}"></td>
+        <tr th:each="zamowienia: ${zamowienia}">
+            <td th:text="${zamowienia.id}"></td>
+            <td th:text="${zamowienia.name}"></td>
+            <td th:text="${zamowienia.lastname}"></td>
+            <td th:text="${zamowienia.mail}"></td>
+            <td th:text="${zamowienia.phonenumber}"></td>
+            <td th:text="${zamowienia.adres}"></td>
+            <td th:text="${zamowienia.text}"></td>
             <td>
-                <form th:action="@{/demo/adminPanel/delete}" th:object="${delet}" method="post">
-                    <input type="hidden" th:value="${data.id}" th:field="*{id}" />
+                <form th:action="@{/demo/adminPanel}" th:object="${delet}" method="post">
+                    <input type="hidden" th:value="${zamowienia.id}" name="id" />
                     <button type="submit">Delete</button>
+                </form>
+
+                <!--<form th:action="@{/demo/adminPanel/delete}" th:object="${zamowienia}" method="post">
+                    <input type="hidden" th:field="${zamowienia.id}" />
+                    <button type="submit" value="Submit">Delete</button>
                 </form>
                 <!--<form class="needs-validation" action="#" th:action="@{/demo/adminPanel}" th:object="${delet}" method="post">
 

@@ -32,7 +32,7 @@ public class AdminPanelController {
 
     @GetMapping(path="/adminPanel")
     public String showAdminPanel(Model model){
-        model.addAttribute("data",zamowieniaRepository.findAll());
+        model.addAttribute("zamowienia",zamowieniaRepository.findAll());
         model.addAttribute("delet", new Zamowienia());
         //model2.addAttribute("data2",ofertaRepository.findAll());
 
@@ -44,7 +44,7 @@ public class AdminPanelController {
         }
 
     }
-    @PostMapping(path="/adminPanel/delete")
+    @PostMapping(path="/adminPanel")
     public String deleteById(@ModelAttribute("delet") Zamowienia zamowienia){
         zamowieniaRepository.deleteById(zamowienia.getId());
         return"adminPanel";
