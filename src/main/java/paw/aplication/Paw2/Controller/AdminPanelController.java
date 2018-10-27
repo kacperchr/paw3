@@ -45,8 +45,8 @@ public class AdminPanelController {
 
     }
     @PostMapping(path="/adminPanel/delete")
-    public String deleteById(@ModelAttribute("delet") Integer id){
-        zamowieniaRepository.deleteById(id);
+    public String deleteById(@ModelAttribute("delet") Zamowienia zamowienia){
+        zamowieniaRepository.deleteById(zamowienia.getId());
         return"adminPanel";
     }
 

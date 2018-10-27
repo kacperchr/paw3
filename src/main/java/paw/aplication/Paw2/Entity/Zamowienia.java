@@ -16,6 +16,7 @@ public class Zamowienia {
     private Integer phonenumber;
     private String adres;
     private String text;
+    private Integer idid;
 
 
     public Integer getId() {
@@ -74,6 +75,14 @@ public class Zamowienia {
         this.text = text;
     }
 
+    public Integer getIdid() {
+        return idid;
+    }
+
+    public void setIdid(Integer idid) {
+        this.idid = idid;
+    }
+
     public Zamowienia(String name, String lastname, String mail, Integer phonenumber, String adres, String text) {
         this.name = name;
         this.lastname = lastname;
@@ -83,6 +92,12 @@ public class Zamowienia {
         this.text = text;
     }
 
+    public Zamowienia(Integer id) {
+        this.idid = id;
+    }
+
     public Zamowienia() {
     }
+
+
 }
