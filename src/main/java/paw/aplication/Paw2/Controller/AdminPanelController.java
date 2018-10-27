@@ -33,7 +33,9 @@ public class AdminPanelController {
     @GetMapping(path="/adminPanel")
     public String showAdminPanel(Model model){
         model.addAttribute("data",zamowieniaRepository.findAll());
+        model.addAttribute("delet", new Zamowienia());
         //model2.addAttribute("data2",ofertaRepository.findAll());
+
         int adminrole=role.getAdmin();
         if(adminrole==1){
             return "adminPanel";
@@ -41,6 +43,11 @@ public class AdminPanelController {
             return "redirect:/demo/index";
         }
 
+    }
+    @DeleteMapping
+    public String deleteById(@ModelAttribute("delet") Integer id){
+        zamowieniaRepository.deleteById(id);
+        return"adminPanel";
     }
 
     /* public String check(@ModelAttribute("user") LoginForm user){

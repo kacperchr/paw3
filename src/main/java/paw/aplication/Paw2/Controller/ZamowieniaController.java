@@ -23,12 +23,12 @@ public class ZamowieniaController {
     @GetMapping(path="/zamowienia")
     public String modelView(Model model) {
         //model.addAttribute("data",ofertaRepository.findAll());
-        model.addAttribute("zamowienia", new Zamowienia());
+        model.addAttribute("zamowieni", new Zamowienia());
 
         return "zamowienia";
     }
     @PostMapping(path="/zamowienia")
-    public String check(@ModelAttribute("zamowienia") Zamowienia zamowienia){
+    public String check(@ModelAttribute("zamowieni") Zamowienia zamowienia){
         zamowieniaRepository.save(zamowienia);
         return "zamowienia";
     }

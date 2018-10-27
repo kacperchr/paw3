@@ -29,7 +29,7 @@
         </thead>
         <tbody>
 
-        <td th:each="data: ${data}">
+        <tr th:each="data: ${data}">
             <td th:text="${data.id}"></td>
             <td th:text="${data.name}"></td>
             <td th:text="${data.lastname}"></td>
@@ -37,7 +37,17 @@
             <td th:text="${data.phonenumber}"></td>
             <td th:text="${data.adres}"></td>
             <td th:text="${data.text}"></td>
-            <!--<td> <input class="btn btn-danger" type="submit" value="Submit">  </td>-->
+            <td>
+                <form th:action="@{/demo/adminPanel}" th:object="${delet}" method="delete">
+                    <input type="hidden" th:field="*{id}" />
+                    <button type="submit">Delete</button>
+                </form>
+                <!--<form class="needs-validation" action="#" th:action="@{/demo/adminPanel}" th:object="${delet}" method="post">
+
+                    <button class="btn btn-danger" th:field="*{${data.id}}" type="submit">Usuń</button>
+
+                </form>-->
+            </td>
         </tr>
 
 
