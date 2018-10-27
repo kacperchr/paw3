@@ -16,8 +16,8 @@ import paw.aplication.Paw2.Repository.ZamowieniaRepository;
 
 public class ZamowieniaController {
 
-    //@Autowired
-    //private ZamowieniaRepository zamowieniaRepository;
+    @Autowired
+    private ZamowieniaRepository zamowieniaRepository;
 
 
     @GetMapping(path="/zamowienia")
@@ -29,7 +29,7 @@ public class ZamowieniaController {
     }
     @PostMapping(path="/zamowienia")
     public String check(@ModelAttribute("zamowienia") Zamowienia zamowienia){
-        
+        zamowieniaRepository.save(zamowienia);
         return "zamowienia";
     }
 
