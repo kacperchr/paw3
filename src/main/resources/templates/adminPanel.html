@@ -38,8 +38,8 @@
             <td th:text="${data.adres}"></td>
             <td th:text="${data.text}"></td>
             <td>
-                <form th:action="@{/demo/adminPanel/delete}" th:object="${delet}" method="get">
-                    <input type="hidden" th:field="*{id}" />
+                <form th:action="@{/demo/adminPanel/delete}" th:object="${delet}" method="post">
+                    <input type="hidden" th:value="${data.id}" th:field="*{id}" />
                     <button type="submit">Delete</button>
                 </form>
                 <!--<form class="needs-validation" action="#" th:action="@{/demo/adminPanel}" th:object="${delet}" method="post">
