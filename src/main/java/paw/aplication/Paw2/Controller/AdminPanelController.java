@@ -5,35 +5,38 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import paw.aplication.Paw2.Entity.Oferta;
 import paw.aplication.Paw2.Entity.User;
-import paw.aplication.Paw2.Repository.UserRepository;
 import paw.aplication.Paw2.Repository.OfertaRepository;
+import paw.aplication.Paw2.Repository.UserRepository;
 import paw.aplication.Paw2.form.LoginForm;
+import paw.aplication.Paw2.Controller.LogowanieController;
 import paw.aplication.Paw2.form.Role;
+
+
+
 
 @Controller
 @RequestMapping(path="/demo")
 
-public class LogowanieController {
-    //private int role = 0;
+public class AdminPanelController {
+
+    //LogowanieController lc = new LogowanieController();
+    Role role = new Role();
 
 
+    @GetMapping(path="/adminPanel")
+    public String showAdminPanel(){
+        int adminrole=role.getAdmin();
+        if(adminrole==1){
+            return "adminPanel";
+        }else{
+            return "redirect:/demo/index";
+        }
 
-    @Autowired
-    private UserRepository userRepository;
-    private Role role = new Role();
-
-
-    @GetMapping(path="/logowanie")
-    public String modelView(Model model) {
-        model.addAttribute("user",new LoginForm());
-
-
-        return "logowanie";
     }
 
-    @PostMapping(path="/logowanie")
-    public String check(@ModelAttribute("user") LoginForm user){
+    /* public String check(@ModelAttribute("user") LoginForm user){
         String username = user.getLogin();
         String password = user.getPassword();
 
@@ -42,25 +45,19 @@ public class LogowanieController {
             String dbusername = user2.getName();
             String dbpassword = user2.getPassword();
 
-            if (dbusername.equals(username) && dbpassword.equals(password) && user2.getRole()==1) {
+            if ( user2.getRole()==1) {
 
-                //user.setRole(1);
-                role.setAdmin(1);
-                return "redirect:/demo/adminPanel";
+                return "adminPanel";
 
             }
 
 
             else {
-                role.setAdmin(2);
-                //user.setRole(2);
-                return "redirect:/demo/userPanel";
+                return "userPanel";
             }
         }else{
             return "logowanie";
         }
-
-    }
-
+    }*/
 
 }

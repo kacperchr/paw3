@@ -1,35 +1,28 @@
 package paw.aplication.Paw2.form;
 
 public class LoginForm {
-    private Integer id;
-    private String name;
 
-    private String email;
+    private String login;
     private String password;
+    public Integer role;
 
-    public Integer getId() {
-        return id;
+    public Integer getRole() {
+        return role;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setRole(Integer role) {
+        this.role = role;
     }
 
-    public String getName() {
-        return name;
+    public String getLogin() {
+        return login;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getPassword() {
         return password;
@@ -40,6 +33,18 @@ public class LoginForm {
     }
 
 
+
+    public LoginForm(String login, String password) {
+
+        this.login = login;
+        this.password = password;
+    }
+    public LoginForm() {
+    }
+
+    public LoginForm(Integer role) {
+        this.role = role;
+    }
 }
 
 

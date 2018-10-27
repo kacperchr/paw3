@@ -13,32 +13,29 @@
 
 <div class="row justify-content-md-center">
   <body class="text-center">
-    <form class="form-signin" th:action="@{/logowanie}" th:object="${user}" method="post">
+    <form class="form-signin" action="#" th:action="@{/demo/logowanie}" th:object="${user}" method="post">
       <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Logowanie</h1>
 
-      <label for="user" class="sr-only">Username</label>
-      <input type="text"  id="user" class="form-control" placeholder="Username" required autofocus>
+      <label for="login" class="sr-only">Username</label>
+      <input type="text"  id="login" class="form-control" placeholder="Username" th:field="*{login}" required autofocus>
 
       <label for="password" class="sr-only">Password</label>
-      <input type="password" id="password" class="form-control" placeholder="Password" required>
+      <input type="password" id="password" class="form-control" placeholder="Password" th:field="*{password}" required>
 
       <button class="btn btn-lg btn-primary btn-block" type="submit">Zaloguj się</button>
-      </div>
+
 
     <!--<a class="btn btn-primary" href="adminPanel/index.html" role="button">Zaloguj się</a>
       <p class="mt-5 mb-3 text-muted">&copy; EventPol</p>-->
     </form>
   </body>
   <!--<body>
-  <form th:action="@{/logowanie}" th:object="${logowanieForm}" method="post">
-    <label for="username">Username</label>
-    <input type="text" id="username" name="username" autofocus="autofocus"/>
-
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password"/>
-    <br/>
-    <input type="submit" value="Log In"/>
+  <h1>Form</h1>
+  <form action="#" th:action="@{/logowanie}" th:object="${user}" method="post">
+    <p>Id: <input type="text" th:field="*{username}" /></p>
+    <p>Message: <input type="text" th:field="*{password}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
   </form>
   </body>-->
 </div>

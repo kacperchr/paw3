@@ -1,18 +1,13 @@
 
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>EventPol</title>
-
-    <!-- Bootstrap core CSS -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
@@ -51,7 +46,7 @@
       </div>
 
       <div class="row">
-          <div class="col-md-4 order-md-2 mb-4">
+          <!--<div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
               <span class="text-muted">Wybrane atrakcje</span>
               <span class="badge badge-secondary badge-pill">2</span>
@@ -79,21 +74,21 @@
             </ul>
 
 
-          </div>
+          </div>-->
           <div class="col-md-8 order-md-1">
             <h4 class="mb-3">Dane kontaktowe</h4>
-            <form class="needs-validation" novalidate>
+            <form class="needs-validation" action="#" th:action="@{/demo/zamowienia}" th:object="${zamowienia}" method="post">
               <div class="row">
                 <div class="col-md-6 mb-3">
-                  <label for="firstName">Imie</label>
-                  <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                  <label for="firstName" >Imie</label>
+                  <input type="text" class="form-control"  id="firstName" placeholder="" value="" th:field="*{name}"  required>
                   <div class="invalid-feedback">
                     Proszę podać Imie
                   </div>
                 </div>
                 <div class="col-md-6 mb-3">
-                  <label for="lastName">Nazwisko</label>
-                  <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                  <label for="lastName" >Nazwisko</label>
+                  <input type="text" class="form-control" id="lastName" placeholder="" value="" th:field="*{lastname}" required>
                   <div class="invalid-feedback">
                     Proszę podać Nazwisko
                   </div>
@@ -114,8 +109,8 @@
               </div>-->
 
               <div class="mb-3">
-                <label for="email">Email</label>
-                  <input type="text" class="form-control" id="email" placeholder="EuroPol@EuroPol.pl" required>
+                <label for="email" >Email</label>
+                  <input type="text" class="form-control" id="email" placeholder="EuroPol@EuroPol.pl" th:field="*{mail}"required>
                   <div class="invalid-feedback" style="width: 100%;">
                     Adres email jest wymagany
                   </div>
@@ -124,14 +119,33 @@
 
 
               <div class="mb-3">
-                <label for="numer">Numer Telefonu</label>
-                <input type="text" class="form-control" id="numer" placeholder="123 456 789" required>
+                <label for="numer" >Numer Telefonu</label>
+                <input type="text" class="form-control" id="numer" placeholder="123 456 789" th:field="*{phonenumber}" required>
                 <div class="invalid-feedback">
                   Proszę podać numer telefonu
                 </div>
               </div>
 
-                <h4 class="mb-3">Dane do Faktury</h4>
+              <div class="mb-3">
+                <label for="adres" >Adres realizacji zamówienia</label>
+                <input type="adres" class="form-control" id="adres" placeholder="" value="" th:field="*{adres}" required>
+                <div class="invalid-feedback">
+                  Proszę podać Treść zamówienia
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="text" >Opis zamowienia</label>
+                <input type="text" class="form-control" id="text" placeholder="" value="" th:field="*{text}" required>
+                <div class="invalid-feedback">
+                  Proszę podać Treść zamówienia
+                </div>
+              </div>
+              <hr class="mb-4">
+              <button class="btn btn-primary btn-lg btn-block" type="submit">Prześlij Zamówienie</button>
+          </div>
+
+              <!--  <h4 class="mb-3">Dane do Faktury</h4>
 
               <div class="mb-3">
                 <label for="nazwaFirmy">Nazwa Firmy</label>
@@ -146,14 +160,13 @@
               <div class="mb-3">
                 <label for="nipFirmy">Nip Firmy</label>
                   <input type="text" class="form-control" id="nipFirmy" placeholder="123 123 1234" >
-              </div>
+              </div>-->
 
 
-              <hr class="mb-4">
-              <button class="btn btn-primary btn-lg btn-block" type="submit">Prześlij Zamówienie</button>
+
             </form>
           </div>
-        </div>
+    </div>
 
     <footer class="blog-footer">
       <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
