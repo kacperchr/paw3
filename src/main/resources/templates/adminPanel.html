@@ -38,7 +38,7 @@
             <td th:text="${data.adres}"></td>
             <td th:text="${data.text}"></td>
             <td>
-                <form th:action="@{/demo/adminPanel}" th:object="${delet}" method="delete">
+                <form th:action="@{/demo/adminPanel/delete}" th:object="${delet}" method="get">
                     <input type="hidden" th:field="*{id}" />
                     <button type="submit">Delete</button>
                 </form>

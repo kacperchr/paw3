@@ -44,7 +44,7 @@ public class AdminPanelController {
         }
 
     }
-    @DeleteMapping(path="/adminPanel")
+    @DeleteMapping(path="/adminPanel/delete")
     public String deleteById(@ModelAttribute("delet") Integer id){
         zamowieniaRepository.deleteById(id);
         return"adminPanel";
