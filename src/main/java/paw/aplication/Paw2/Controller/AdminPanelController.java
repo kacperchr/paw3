@@ -27,14 +27,17 @@ public class AdminPanelController {
     Role role = new Role();
     @Autowired
     private ZamowieniaRepository zamowieniaRepository;
-    //@Autowired
-    //private OfertaRepository ofertaRepository;
+    @Autowired
+    private OfertaRepository ofertaRepository;
+    @Autowired
+    private OfertaRepository ofertaRepository2;
 
     @GetMapping(path="/adminPanel")
-    public String showAdminPanel(Model model){
+    public String showAdminPanel(Model model, Model model2){
         model.addAttribute("zamowienia",zamowieniaRepository.findAll());
         model.addAttribute("delet", new Zamowienia());
-        //model2.addAttribute("data2",ofertaRepository.findAll());
+        model.addAttribute("data2",ofertaRepository.findAll());
+        model2.addAttribute("oferta", new Oferta());
 
         int adminrole=role.getAdmin();
         if(adminrole==1){
@@ -47,7 +50,17 @@ public class AdminPanelController {
     @PostMapping(path="/adminPanel")
     public String deleteById(@ModelAttribute("delet") Zamowienia zamowienia){
         zamowieniaRepository.deleteById(zamowienia.getId());
-        return"adminPanel";
+        return"redirect:/demo/adminPanel";
+    }
+    @PostMapping(path="/adminPanel")
+    public String deleById(@ModelAttribute("dele") Oferta oferta){
+        ofertaRepository.deleteById(oferta.getId());
+        return"redirect:/demo/adminPanel";
+    }
+    @PostMapping(path="/adminPanel")
+    public String check(@ModelAttribute("oferta") Oferta ofert){
+        ofertaRepository2.save(ofert);
+        return "redirect:/demo/adminPanel";
     }
 
     /* public String check(@ModelAttribute("user") LoginForm user){

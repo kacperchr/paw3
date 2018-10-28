@@ -13,6 +13,8 @@
 </head>
 <body>
     <p>Admin Panel</p>
+
+
     <table class="table">
         <thead>
         <tr>
@@ -43,28 +45,49 @@
                     <button type="submit">Delete</button>
                 </form>
 
-                <!--<form th:action="@{/demo/adminPanel/delete}" th:object="${zamowienia}" method="post">
-                    <input type="hidden" th:field="${zamowienia.id}" />
-                    <button type="submit" value="Submit">Delete</button>
-                </form>
-                <!--<form class="needs-validation" action="#" th:action="@{/demo/adminPanel}" th:object="${delet}" method="post">
-
-                    <button class="btn btn-danger" th:field="*{${data.id}}" type="submit">Usuń</button>
-
-                </form>-->
             </td>
         </tr>
 
 
         </tbody>
     </table>
-<!--
+
+    <form class="needs-validation" action="#" th:action="@{/demo/adminPanel}" th:object="${oferta}" method="post">
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="firstName" >Imie</label>
+                <input type="text" class="form-control"  id="firstName" placeholder="" value="" th:field="*{name}"  required>
+                <div class="invalid-feedback">
+                    Proszę podać Imie
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="picture" >Nazwisko</label>
+                <input type="text" class="form-control" id="picture" placeholder="picture.jpg" value="" th:field="*{picture}" required>
+                <div class="invalid-feedback">
+                    Proszę podać nazwę obrazka
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="text" >Nazwisko</label>
+                <input type="text" class="form-control" id="text" placeholder="Opis" value="" th:field="*{text}" required>
+                <div class="invalid-feedback">
+                    Proszę podać opis
+                </div>
+            </div>
+        </div>
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Dodaj produkt</button>
+
+    </form>
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nazwa</th>
                 <th scope="col">Opis</th>
+                <th scope="col">Akcja</th>
             </tr>
         </thead>
             <tbody>
@@ -73,10 +96,18 @@
                     <td th:text="${data2.id}"></td>
                     <td th:text="${data2.name}"></td>
                     <td th:text="${data2.text}"></td>
+                    <td>
+
+                        <form th:action="@{/demo/adminPanel}" th:object="${dele}" method="post">
+                            <input type="hidden" th:value="${data2.id}" name="id" />
+                            <button type="submit">Delete</button>
+                        </form>
+
+                    </td>
                 </tr>
 
 
             </tbody>
-    </table>-->
+    </table>
 </body>
 </html>

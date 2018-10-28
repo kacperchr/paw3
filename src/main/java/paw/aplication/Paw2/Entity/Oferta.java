@@ -56,5 +56,12 @@ public class  Oferta {
         this.text = text;
     }
 
+    public Oferta(String name, String picture, String text) {
+        this.name = name;
+        this.picture = picture;
+        this.text = text;
+    }
 
+    public Oferta() {
+    }
 }
