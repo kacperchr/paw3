@@ -40,7 +40,7 @@
             <td th:text="${zamowienia.adres}"></td>
             <td th:text="${zamowienia.text}"></td>
             <td>
-                <form th:action="@{/demo/adminPanel}" th:object="${delet}" method="post">
+                <form th:action="@{/demo/adminPanel/deleteZamowienie}" th:object="${delet}" method="post">
                     <input type="hidden" th:value="${zamowienia.id}" name="id" />
                     <button type="submit">Delete</button>
                 </form>
@@ -52,25 +52,25 @@
         </tbody>
     </table>
 
-    <form class="needs-validation" action="#" th:action="@{/demo/adminPanel}" th:object="${oferta}" method="post">
+    <form class="needs-validation" action="#" th:action="@{/demo/adminPanel/add}" th:object="${oferta}" method="post">
 
         <div class="row">
             <div class="col-md-6 mb-3">
-                <label for="firstName" >Imie</label>
+                <label for="firstName" >Nazwa Atrakcji</label>
                 <input type="text" class="form-control"  id="firstName" placeholder="" value="" th:field="*{name}"  required>
                 <div class="invalid-feedback">
-                    Proszę podać Imie
+                    Proszę podać nazwę atrakcji
                 </div>
             </div>
             <div class="col-md-6 mb-3">
-                <label for="picture" >Nazwisko</label>
+                <label for="picture" >Nazwa obrazka</label>
                 <input type="text" class="form-control" id="picture" placeholder="picture.jpg" value="" th:field="*{picture}" required>
                 <div class="invalid-feedback">
                     Proszę podać nazwę obrazka
                 </div>
             </div>
             <div class="col-md-6 mb-3">
-                <label for="text" >Nazwisko</label>
+                <label for="text" >Opis</label>
                 <input type="text" class="form-control" id="text" placeholder="Opis" value="" th:field="*{text}" required>
                 <div class="invalid-feedback">
                     Proszę podać opis
@@ -98,7 +98,7 @@
                     <td th:text="${data2.text}"></td>
                     <td>
 
-                        <form th:action="@{/demo/adminPanel}" th:object="${dele}" method="post">
+                        <form th:action="@{/demo/adminPanel/deleteOferta}" th:object="${dele}" method="post">
                             <input type="hidden" th:value="${data2.id}" name="id" />
                             <button type="submit">Delete</button>
                         </form>

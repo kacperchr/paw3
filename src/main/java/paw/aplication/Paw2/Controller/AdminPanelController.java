@@ -47,17 +47,17 @@ public class AdminPanelController {
         }
 
     }
-    @PostMapping(path="/adminPanel")
+    @PostMapping(path="/adminPanel/deleteZamowienie")
     public String deleteById(@ModelAttribute("delet") Zamowienia zamowienia){
         zamowieniaRepository.deleteById(zamowienia.getId());
         return"redirect:/demo/adminPanel";
     }
-    @PostMapping(path="/adminPanel")
+    @PostMapping(path="/adminPanel/deleteOferta")
     public String deleById(@ModelAttribute("dele") Oferta oferta){
         ofertaRepository.deleteById(oferta.getId());
         return"redirect:/demo/adminPanel";
     }
-    @PostMapping(path="/adminPanel")
+    @PostMapping(path="/adminPanel/add")
     public String check(@ModelAttribute("oferta") Oferta ofert){
         ofertaRepository2.save(ofert);
         return "redirect:/demo/adminPanel";
